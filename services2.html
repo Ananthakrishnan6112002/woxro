@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          roboto: ['Roboto', 'sans-serif'],
+          quicksand: ['Quicksand', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body>
+
+  <script src="2task.js" defer></script>
+ 
+     <header class="flex justify-between items-center px-2 sm:px-20 md:px-28 lg:px-44 py-4 dark:bg-[#1C2139] border-b-[1px] border-gray-300">
+    <a href="index.html">
+      <div class="flex items-center space-x-2">
+        <span class="">
+           <img src="./images/logo.png" class="h-5" >
+        </span>
+        <span class="text-gray-600 dark:text-white font-normal">LOGO</span>
+      </div>
+    </a>
+      <nav class=" text-sm text-gray-600 dark:text-white">
+      <div class="hidden md:flex sm:space-x-6 space-x-2 ">
+        
+        <a href="index.html" class="hover:text-gray-900">Home</a>
+        <a href="services.html" class="hover:text-gray-900">Services</a>
+        <a href="about.html" class="hover:text-gray-900">About</a>
+        <a href="contact us.html" class="hover:text-gray-900">Contact</a>
+        <button onclick="document.documentElement.classList.toggle('dark')" class="hover:text-gray-900 dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+        </button>
+      </div>
+    <div class="md:hidden z-50" >
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+         <div id="menu" 
+       class="fixed top-0 right-0 h-full w-2/3 bg-white text-black transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+       <button class="text-black" id="close-menu"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-8">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+</svg>
+</button>
+    <ul class="flex flex-col p-6 space-y-4">
+      <li><a href="index.html" class="hover:text-gray-300 text-xl border-b-2">Home</a></li>
+      <li><a href="about.html" class="hover:text-gray-300 text-xl border-b-2">About</a></li>
+      <li><a href="services.html" class="hover:text-gray-300 text-xl border-b-2">Services</a></li>
+      <li><a href="contact us.html" class="hover:text-gray-300 text-xl border-b-2">Contact</a></li>
+    </ul>
+  </div>
+
+     <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('close-menu');
+    btn.addEventListener('click', () => {
+       menu.classList.toggle('translate-x-full'); // hide/show
+    });
+
+    closeMenu.addEventListener('click', () => {
+      menu.classList.toggle('translate-x-full'); // hide/show
+    });
+  </script>
+      
+    </nav>
+  </header>
+   <div class="lg:pl-44 lg:pr-44 pl-10 pr-10 pt-10 dark:bg-[#1C2139] ">
+        <div class=" text-center space-y-2">
+        <span class="font-quicksand text-xs text-gray-600 dark:text-gray-400 ">Home /</span>
+        <span class="font-quicksand text-4xl block dark:text-white">Strategic Planning Services</span>
+        <span class="font-light text-sm text-gray-900 font-quicksand text-center text-wrap dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+          Voluptates nostrum perferendis <br> corporis exercitationem culpa at? Reprehenderit magni modi incidunt animi officia, <br>
+          consectetur necessitatibus fugiat veritatis optio beatae tenetur quidem accusantium</span>
+          </div>
+           <div class="lg:pl-36 lg:pr-36 p-14 pt-20">
+<img src="images\33aa4c76cf55c8b98a8f1ef3ddaebffd32169fc2.jpg" class="lg:w-[1200px] lg:h-[300px] rounded-sm" alt="">
+<div class="font-quicksand text-2xl mt-5 dark:text-white">Our Process   </div>
+<span class="font-light text-sm text-gray-600 font-quicksand dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+  Voluptates nostrum perferendis corporis exercitationem culpa at? Reprehenderit magni modi incidunt animi officia, <br> 
+  consectetur necessitatibus fugiat veritatis optio beatae tenetur quidem accusantium.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupiditate similique at, modi totam sequi perspiciatis voluptate quam nostrum
+ odit beatae quae dolore autem dolores vero quia suscipit, porro iste.</span>
+
+  </div>
+  </div>
+<div class="bg-[#F5F5F6] dark:bg-[#1C2139] ">
+    <div class="font-quicksand text-4xl text-center pt-24 pb-24 dark:text-white">Previous Projects</div>
+     <div class="md:flex ml-10 md:ml-40 lg:ml-40 lg:pl-44 lg:pr-44 ">
+          <div class="flex flex-col lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-0">
+            <img src="./images/4.jpg" class="h-[21rem] w-[16rem] lg:h-[21rem] lg:w-[17rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+            <img src="./images/3.jpg"  class="h-[21rem] w-[16rem] lg:h-[15rem] lg:w-[17rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+    
+    
+          </div>
+          <div class="flex flex-col  lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-3 md:mt-0 mt-3" >
+    
+             <img src="./images/1.jpg" class="h-[15rem] w-[16rem] lg:h-[15rem] lg:w-[17rem] md:h-[8rem] md:w-[8rem] rounded-sm" alt="">
+            <img src="./images/4.jpg" class="h-[21rem] w-[16rem] lg:h-[21rem] lg:w-[17rem] md:h-[12rem] md:w-[8rem] rounded-sm" alt="">
+    
+          </div>
+            <div class="flex flex-col  lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10  md:ml-3  md:mt-0 mt-3 " >
+    
+            <img src="./images/2.jpg" class="h-[21rem] w-[16rem] lg:h-[21rem] lg:w-[17rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+            <img src="./images/3.jpg"  class="h-[15rem] w-[16rem] lg:h-[15rem] lg:w-[17rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+          </div>
+        </div>
+</div>
+<div class="lg:pl-44 lg:pr-44 pl-10 pr-10 pt-10 dark:bg-[#1C2139] ">
+
+    <div class="font-quicksand text-4xl text-center pt-24 pb-24 dark:text-white">Success stories</div>
+    <div class="flex lg:ml-32 md:ml-10"><img src="images\sachin.jpeg" class="h-20 w-20 rounded-full" alt="">
+    <div class="flex flex-col ml-6">
+        <div class="font-light text-sm text-gray-600 font-quicksand text-wrap mr-7 dark:text-gray-400">As a small business owner, finding a reliable cleaning service was a top priority.
+            Ever since I started using this service, my office has never looked better! The team is punctual, thorough,
+             and always goes the extra mile. They’ve truly taken the
+             hassle out of maintaining a clean and professional workspace. I can’t recommend them enough!</div>
+             <div class="font-quicksand text-lg dark:text-white">Sachin Tendulkar</div>
+             <div class="font-light text-xs text-gray-600 font-quicksand dark:text-white">Indian Cricket Player</div>
+    </div>
+    </div>
+    <div class="flex lg:ml-32 md:ml-10 mt-16"><img src="images\dhoni.jpeg" class="h-20 w-20 rounded-full" alt="">
+    <div class="flex flex-col ml-6">
+        <div class="font-light text-sm text-gray-600 font-quicksand text-wrap mr-7 dark:text-gray-400">As a small business owner, finding a reliable cleaning service was a top priority.
+            Ever since I started using this service, my office has never looked better! The team is punctual, thorough,
+             and always goes the extra mile. They’ve truly taken the
+             hassle out of maintaining a clean and professional workspace. I can’t recommend them enough!</div>
+             <div class="font-quicksand text-lg dark:text-white">M S Dhoni</div>
+             <div class="font-light text-xs text-gray-600 font-quicksand dark:text-white">Indian Cricket Player</div>
+    </div>
+    </div>
+    <div class="flex lg:ml-32 md:ml-10  mt-16"><img src="./images/kohli.jpeg" alt="Emily Nguyen" class="w-20 h-20  rounded-full  object-cover">
+    <div class="flex flex-col ml-6">
+        <div class="font-light text-sm text-gray-600 font-quicksand text-wrap mr-7 dark:text-gray-400">As a small business owner, finding a reliable cleaning service was a top priority.
+            Ever since I started using this service, my office has never looked better! The team is punctual, thorough,
+             and always goes the extra mile. They’ve truly taken the
+             hassle out of maintaining a clean and professional workspace. I can’t recommend them enough!</div>
+             <div class="font-quicksand text-lg dark:text-white">Virat Kohli</div>
+             <div class="font-light text-xs text-gray-600 font-quicksand dark:text-white">Indian Cricket Player</div>
+    </div>
+    </div>
+    </div>
+     <div class="bg-[#F5F5F6] dark:bg-[#1C2139] ">
+         <section class="py-20 px-6 md:px-20 lg:px-32 flex flex-col md:flex-row justify-between bg-[#F5F5F6] dark:bg-[#1C2139]">
+    <!-- Left Content -->
+    <div class="md:w-1/2 mb-10 mt-32 md:mb-0">
+      <h2 class="text-4xl font-normal text-gray-900 font-quicksand dark:text-white ">Get in touch</h2>
+      <div class="w-12 h-[2px] bg-yellow-500 my-4"></div>
+      <p class="text-gray-500 max-w-md font-quicksand dark:text-gray-400">
+        Have a question? Let us know! We’re dedicated to providing the support you need.
+      </p>
+    </div>
+
+    <!-- Right Contact Form -->
+    <div class="md:w-1/2">
+      <form class="space-y-2">
+        <div>
+          <label  class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Name</label> <p id="nameerror" class="text-red-600 text-xs"></p>
+          <input type="text" id="names" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+        </div>
+       
+        
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Phone number</label><p id="pherror" class="text-red-600 text-xs"></p>
+          <input type="text" id="no" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-dotted">
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Email</label><p id="mailerror" class="text-red-600 text-xs"></p>
+          <input type="email" id="email" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Your message</label><p id="msgerror" class="text-red-600 text-xs"></p>
+          <textarea id="message" placeholder="Placeholder text" rows="4" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"></textarea>
+        </div>
+        <button type="button" id="sub" class="w-full border border-gray-700 rounded py-2 dark:bg-white text-gray-800 flex items-center font-quicksand justify-center hover:bg-gray-100">
+          Send <span class="ml-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+</svg>
+</span>
+        </button>
+      </form>
+    </div>
+  </section>
+     </div>
+ <div class="lg:pl-64 lg:pr-64 pl-10 pr-10 pt-10 dark:bg-[#1C2139] ">
+     <footer class="bg-gray-50 py-12 mt-12 dark:bg-[#1C2139]">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-gray-700">
+     
+          <!-- More -->
+          <div>
+            <h4 class="font-normal text-gray-900 mb-3 font-quicksand text-xl dark:text-white">MORE</h4>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">FAQ</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Shipping & returns</a></li>
+              <li><a href="contact us.html" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Contact</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Terms</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Privacy</a></li>
+            </ul>
+          </div>
+          <!-- Email List -->
+          <div>
+            <h4 class="font-normal text-xl font-quicksand text-gray-900 mb-3 dark:text-white">EMAIL LIST</h4>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">FAQ</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Shipping & returns</a></li>
+              <li><a href="contact us.html" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Contact</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Terms</a></li>
+              <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Privacy</a></li>
+            </ul>
+          </div>
+          <!-- About Us -->
+          <div>
+            <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand dark:text-white">ABOUT US</h4>
+            <p class="text-gray-500 text-sm font-quicksand dark:text-gray-400">
+              Helping businesses thrive with tailored solutions and expert guidance.
+              Driven by innovation, we focus on real results and lasting partnerships.
+            </p>
+          </div>
+          <!-- Social Media -->
+          <div>
+            <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand text-nowrap md:text-wrap lg:text-nowrap dark:text-white">FOLLOW US ON SOCIAL MEDIA</h4>
+            <div class="flex space-x-3">
+              <a href="#" class="bg-[#CBB97A] p-2 rounded text-white">
+               <img src="C:\Users\aanan\OneDrive\Desktop\website\task2\images\insta-svgrepo-com.svg" class="size-5" alt="">
+     
+              </a>
+              <a href="#" class="bg-[#CBB97A] p-2 rounded text-white"><img src="C:\Users\aanan\OneDrive\Desktop\website\task2\images\tiktok-svgrepo-com.svg" class="size-5" alt=""></a>
+              <a href="#" class="bg-[#CBB97A] p-2 rounded text-white"><img src="C:\Users\aanan\OneDrive\Desktop\website\task2\images\pinterest-logo-thin-svgrepo-com.svg" class="size-5" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Links -->
+        <div class="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-500">
+          <a href="#" class="mx-2 hover:text-gray-900 font-quicksand dark:text-gray-400">FAQ</a>
+          <a href="#" class="mx-2 hover:text-gray-900 font-quicksand dark:text-gray-400">Shipping & returns</a>
+          <a href="contact us.html" class="mx-2 hover:text-gray-900 font-quicksand dark:text-gray-400">Contact</a>
+          <a href="#" class="mx-2 hover:text-gray-900 font-quicksand dark:text-gray-400">Terms</a>
+          <a href="#" class="mx-2 hover:text-gray-900 font-quicksand dark:text-gray-400">Privacy</a>
+        </div>
+        <div class="text-center font-quicksand text-xs text-gray-500 mt-10 dark:text-gray-400">copyright 2024</div>
+      </footer>
+ </div>
+
+
+
+    
+    
+</body>
+</html>

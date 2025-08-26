@@ -13,7 +13,9 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
+    
       extend: {
         fontFamily: {
           roboto: ['Roboto', 'sans-serif'],
@@ -27,25 +29,66 @@
   
 </head>
 <body class="font-sans">
-
+<script src="2task.js" defer></script>
   <!-- Navbar -->
-  <header class="flex justify-between items-center px-2 sm:px-20 md:px-28 lg:px-44 py-4">
-    <div class="flex items-center space-x-2">
-      <span class="">
-         <img src="./images/logo.png" class="h-5" >
-
-      </span>
-      <span class="text-gray-600 font-semibold">LOGO</span>
-    </div>
-    <nav class="sm:space-x-6 space-x-2 text-sm text-gray-600 flex">
-      <a href="index.html" class="hover:text-gray-900">Home</a>
-      <a href="#" class="hover:text-gray-900">Services</a>
-      <a href="about.html" class="hover:text-gray-900">About</a>
-      <a href="#" class="hover:text-gray-900">Contact</a>
-      <a href="#" class="hover:text-gray-900"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+  <header class="flex justify-between items-center px-2 sm:px-20 md:px-28 lg:px-44 py-4 dark:bg-[#1C2139] border-b-[1px] border-gray-300">
+    <a href="index.html">
+      <div class="flex items-center space-x-2">
+        <span class="">
+           <img src="./images/logo.png" class="h-5">
+        </span>
+        <span class="text-gray-600 dark:text-white font-normal">LOGO</span>
+      </div>
+    </a>
+    <nav class=" text-sm text-gray-600 dark:text-white">
+      <div class="hidden md:flex sm:space-x-6 space-x-2 ">
+        
+        <a href="index.html" class="hover:text-gray-900">Home</a>
+        <a href="services.html" class="hover:text-gray-900">Services</a>
+        <a href="about.html" class="hover:text-gray-900">About</a>
+        <a href="contact us.html" class="hover:text-gray-900">Contact</a>
+        <button onclick="document.documentElement.classList.toggle('dark')" class="hover:text-gray-900 dark:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+        </button>
+      </div>
+      <div class="md:hidden z-50" >
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <!-- Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+         <div id="menu" 
+       class="fixed top-0 right-0 h-full w-2/3 bg-white text-black transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+       <button class="text-black" id="close-menu"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-8">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 </svg>
-</a>
+</button>
+    <ul class="flex flex-col p-6 space-y-4">
+      <li><a href="index.html" class="hover:text-gray-300 text-xl border-b-2">Home</a></li>
+      <li><a href="about.html" class="hover:text-gray-300 text-xl border-b-2">About</a></li>
+      <li><a href="services.html" class="hover:text-gray-300 text-xl border-b-2">Services</a></li>
+      <li><a href="contact us.html" class="hover:text-gray-300 text-xl border-b-2">Contact</a></li>
+    </ul>
+  </div>
+
+     <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('close-menu');
+    btn.addEventListener('click', () => {
+       menu.classList.toggle('translate-x-full'); // hide/show
+    });
+
+    closeMenu.addEventListener('click', () => {
+      menu.classList.toggle('translate-x-full'); // hide/show
+    });
+  </script>
+      
     </nav>
   </header>
 
@@ -55,108 +98,117 @@
       class="w-full h-[500px] object-cover">
 
     <!-- Overlay box -->
-    <div class="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 w-11/12 md:w-[80%] lg:w-1/2 bg-white shadow-lg rounded-md text-center p-8">
-      <h1 class="text-2xl md:text-3xl  font-light mb-2 font-roboto">Welcome to our website</h1>
-      <p class="text-gray-500 mb-4 font-quicksand">Say something else about the website!</p>
-      <button class="bg-[#CDBB88] text-white px-6 py-2 rounded">Get in touch</button>
+    <div class="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 w-11/12 md:w-[80%] lg:w-1/2 bg-white dark:bg-[#1C2139] shadow-lg rounded-md text-center p-8">
+      <h1 class="text-2xl md:text-4xl  font-normal mb-3 font-quicksand dark:text-white">Welcome to our website</h1>
+      <p class="text-gray-500 mb-4 font-quicksand dark:text-white">Say something else about the website!</p>
+      <button class="bg-[#CDBB88] hover:bg-yellow-700 text-white px-6 py-2 rounded-sm font-light">Get in touch</button>
     </div>
   </section>
 
   <!-- Add some spacing below so the overlay isn’t cut -->
-  <div class="h-12"></div>
-  <section class="py-16 px-14 xl:px-6 lg:px-16">
-    <div class="text-center mb-12">
-      <p class="text-sm tracking-widest text-[#CDBB88] uppercase">Services</p>
-      <h2 class="text-3xl font-semibold text-gray-800">What we do best</h2>
+  <div class="h-12 dark:bg-[#1C2139]"></div>
+  <section class="py-16 sm:px-14 px-4 xl:px-6 lg:px-16 dark:bg-[#1C2139]">
+    <div class="text-center mb-20">
+      <p class="text-sm tracking-widest font-quicksand text-[#CDBB88] uppercase">Services</p>
+      <h2 class="text-3xl font-light   text-gray-900 dark:text-white">What we do best</h2>
     </div>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 text-center">
       
       <!-- Card 1 -->
-      <div>
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500" 
-             alt="Strategic Planning" class="w-full h-64 object-cover rounded">
-        <h3 class="mt-2 font-medium font-quicksand text-gray-800 text-xl">STRATEGIC PLANNING SERVICES</h3>
-        <p class="mt-2 text-gray-500 text-sm font-quicksand">
-          Our Strategic Planning Services are designed to help you set clear goals and map out a path to achieve them. We work closely w...
-        </p>
+      <div><a href="#">
+        
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500"
+               alt="Strategic Planning" class="w-full h-64 object-cover rounded">
+          <h3 class="mt-2 font-medium font-quicksand text-gray-700 text-xl md:text-base lg:text-xl dark:text-white ">STRATEGIC PLANNING SERVICES</h3>
+          <p class="mt-2 text-gray-500 text-sm font-quicksand">
+            Our Strategic Planning Services are designed to help you set clear goals and map out a path to achieve them. We work closely w...
+          </p>
+      </a>
       </div>
 
       <!-- Card 2 -->
       <div>
-        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=500" 
-             alt="Project Management" class="w-full h-64 object-cover rounded">
-        <h3 class="mt-2 font-medium text-gray-800 text-xl font-quicksand text-wrap md:w-56">COMPREHENSIVE PROJECT MANAGEMENT</h3>
-        <p class="mt-2 text-gray-500 text-sm font-quicksand">
-          From start to finish, our Comprehensive Project Management ensures every detail is handled with precision. We co...
-        </p>
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=500"
+               alt="Project Management" class="w-full h-64 object-cover rounded">
+          <h3 class="mt-2 font-medium text-gray-700 text-xl md:text-base lg:text-xl font-quicksand text-wrap lg:w-56 xl:ml-6 dark:text-white">COMPREHENSIVE PROJECT MANAGEMENT</h3>
+          <p class="mt-2 text-gray-500 text-sm font-quicksand">
+            From start to finish, our Comprehensive Project Management ensures every detail is handled with precision. We co...
+          </p>
+        </a>
       </div>
 
       <!-- Card 3 -->
       <div>
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500" 
-             alt="Maintenance and Support" class="w-full h-64 object-cover rounded">
-        <h3 class="mt-2 font-quicksand font-medium text-gray-800 text-xl md:w-56">RELIABLE MAINTENANCE AND SUPPORT</h3>
-        <p class="mt-2 text-gray-500 text-sm font-quicksand">
-          Keep everything running smoothly with our Reliable Maintenance and Support. We provide consistent care and proactive sol...
-        </p>
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500"
+               alt="Maintenance and Support" class="w-full h-64 object-cover rounded">
+          <h3 class="mt-2 font-quicksand font-medium text-gray-700 text-xl md:text-base lg:text-xl lg:w-56 dark:text-white text-wrap xl:ml-3">RELIABLE MAINTENANCE AND SUPPORT</h3>
+          <p class="mt-2 text-gray-500 text-sm font-quicksand">
+            Keep everything running smoothly with our Reliable Maintenance and Support. We provide consistent care and proactive sol...
+          </p>
+        </a>
       </div>
 
       <!-- Card 4 -->
       <div>
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500" 
-             alt="Consultation Services" class="w-full h-64 object-cover rounded">
-        <h3 class="mt-2 ml-4 text-gray-800 text-xl font-quicksand font-medium md:w-36 lg:w-56">EXPERT CONSULTATION SERVICES</h3>
-        <p class="mt-2 text-gray-500 text-sm font-quicksand">
-          Gain the insights you need with our Expert Consultation Services. Whether you’re looking for guidance, fresh perspectives, or...
-        </p>
+        <a href="#">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500"
+               alt="Consultation Services" class="w-full h-64 object-cover rounded">
+          <h3 class="mt-2 ml-4 text-gray-700 text-xl md:text-base lg:text-xl font-quicksand font-medium  lg:w-56 dark:text-white text-wrap ">EXPERT CONSULTATION SERVICES</h3>
+          <p class="mt-2 text-gray-500 text-sm font-quicksand">
+            Gain the insights you need with our Expert Consultation Services. Whether you’re looking for guidance, fresh perspectives, or...
+          </p>
+        </a>
       </div>
 
     </div>
   </section>
-  <div class="text-center p-24">
-    <div class="text-[#CDBB88] font-light text-lg font-quicksand tracking-wide mb-1">OUR COMPANY</div>
-    <span class="font-quicksand font-normal text-3xl">Guided by principles, driven by results</span>
+  <div class="w-full bg-[#F5F5F6] dark:bg-[#1C2139]">
+    <div class="text-center sm:pt-36 pt-16 sm:pl-24 sm:pr-24 px-4 pb-8">
+      <div class="text-[#CDBB88] font-light text-lg font-quicksand tracking-wide mb-1">OUR COMPANY</div>
+      <span class="font-quicksand font-normal text-3xl dark:text-white ">Guided by principles, driven by results</span>
+    </div>
+    <div class="lg:pb-36 lg:pl-48  lg:pr-48 lg:pt-14 sm:p-14 pl-2 p-4">
+    <div class="ml-4"><img src="./images/f75b550988082411404d68ba88aa9ef770226c42 (1).jpg" class="lg:w-[1200px] lg:h-[400px] object-cover " alt=""></div>
+    <div class="font-quicksand text-3xl mt-3 dark:text-white ml-4 ">Our Story</div>
+    <span class="font-light text-sm text-gray-600 font-quicksand dark:text-gray-400 lg:ml-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    Voluptates nostrum perferendis corporis exercitationem culpa at? Reprehenderit magni modi incidunt animi officia, <br>
+    consectetur necessitatibus fugiat veritatis optio beatae tenetur quidem accusantium.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupiditate similique at, modi totam sequi perspiciatis voluptate quam nostrum
+     odit beatae quae dolore autem dolores vero quia suscipit, porro iste.</span>
+    </div>
   </div>
-  <div class="lg:p-36 p-14">
-<img src="./images/f75b550988082411404d68ba88aa9ef770226c42 (1).jpg" class="lg:w-[1200px] lg:h-[400px]" alt="">
-<div class="font-quicksand text-3xl mt-3">Our Story</div>
-<span class="font-light text-sm text-gray-600 font-quicksand">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-  Voluptates nostrum perferendis corporis exercitationem culpa at? Reprehenderit magni modi incidunt animi officia, <br> 
-  consectetur necessitatibus fugiat veritatis optio beatae tenetur quidem accusantium.
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupiditate similique at, modi totam sequi perspiciatis voluptate quam nostrum
- odit beatae quae dolore autem dolores vero quia suscipit, porro iste.</span>
 
-  </div>
-
-  <div class="w-full bg-[#1C2139] md:px-[8rem] xl:px-[22rem] lg:px-[12rem] px-[0rem] py-14">
+  <div class="w-full bg-[#1c2139] dark:bg-[#202541] md:px-[6rem] 2xl:px-[13rem] xl:px-[11rem] lg:px-[12rem] px-[0rem] py-20">
     <div class="mb-5">
-      <span class="text-white font-quicksand text-2xl tracking-wide font-light mr-[15rem] md:mr-[20rem] lg:mr-[25rem] xl:mr-[32rem] xl:ml-8">Projects</span>
+      <span class="text-white font-quicksand text-2xl tracking-wide font-light mr-[12rem] ml-2 md:mr-[20rem] lg:mr-[25rem] xl:mr-[52rem] xl:ml-8">Projects</span>
       
-        <span class="text-gray-200 font-quicksand text-[0.6rem] tracking-wide font-light">View all Projects ></span>
-    </div>  
-    <div class="md:flex ml-14 lg:ml-9">
-      <div class="flex flex-col lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-0">
-        <img src="./images/4.jpg" class="h-[21rem] w-[14rem] lg:h-[21rem] lg:w-[14rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
-        <img src="./images/3.jpg"  class="h-[21rem] w-[14rem] lg:h-[15rem] lg:w-[14rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+        <span class="text-gray-200 font-quicksand text-[0.8rem] tracking-wide font-light">View all Projects ></span>
+    </div>
+    <div class="md:flex ml-8 lg:ml-7">
+      <div class="flex flex-col lg:gap-6 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-0">
+        <img src="./images/4.jpg" class="h-[21rem] w-[18rem] lg:h-[28rem] lg:w-[22rem] md:h-[10rem] md:w-[14rem] rounded-sm" alt="">
+        <img src="./images/3.jpg"  class="h-[21rem] w-[18rem] lg:h-[20rem] lg:w-[22rem] md:h-[10rem] md:w-[14rem] rounded-sm" alt="">
        
       
       </div>
-      <div class="flex flex-col  lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-3 md:mt-0 mt-3" >
+      <div class="flex flex-col  lg:gap-6 md:gap-2 gap-4 sm:ml-16 ml-10 lg:ml-6 md:ml-3 md:mt-0 mt-3" >
         
-         <img src="./images/1.jpg" class="h-[15rem] w-[14rem] lg:h-[15rem] lg:w-[14rem] md:h-[8rem] md:w-[8rem] rounded-sm" alt="">
-        <img src="./images/4.jpg" class="h-[21rem] w-[14rem] lg:h-[21rem] lg:w-[14rem] md:h-[12rem] md:w-[8rem] rounded-sm" alt="">
+         <img src="./images/1.jpg" class="h-[21rem] w-[18rem] lg:h-[20rem] lg:w-[22rem] md:h-[8rem] md:w-[14rem] rounded-sm" alt="">
+        <img src="./images/4.jpg" class="h-[21rem] w-[18rem] lg:h-[28rem] lg:w-[22rem] md:h-[12rem] md:w-[14rem] rounded-sm" alt="">
       
       </div>
-        <div class="flex flex-col  lg:gap-4 md:gap-2 gap-4 sm:ml-16 ml-10  md:ml-3  md:mt-0 mt-3 " >
+        <div class="flex flex-col  lg:gap-6 md:gap-2 gap-4 sm:ml-16 ml-10 md:ml-3 lg:ml-6  md:mt-0 mt-3 " >
         
-        <img src="./images/2.jpg" class="h-[21rem] w-[14rem] lg:h-[21rem] lg:w-[14rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
-        <img src="./images/3.jpg"  class="h-[15rem] w-[14rem] lg:h-[15rem] lg:w-[14rem] md:h-[10rem] md:w-[8rem] rounded-sm" alt="">
+        <img src="./images/2.jpg" class="h-[21rem] w-[18rem] lg:h-[28rem] lg:w-[22rem] md:h-[10rem] md:w-[14rem] rounded-sm" alt="">
+        <img src="./images/3.jpg"  class="h-[21rem] w-[18rem] lg:h-[20rem] lg:w-[22rem] md:h-[10rem] md:w-[14rem] rounded-sm" alt="">
       </div>
     </div>
     
   </div>
-    <section class="py-20 px-6 text-center">
+    <section class="py-28 px-6 text-center dark:bg-[#202541]">
     <!-- Section Heading -->
     <div class="mb-12">
       <p class="uppercase text-sm tracking-widest text-[#CBB97A]">Testimonials</p>
@@ -173,9 +225,9 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
         <p class="text-gray-500 text-sm leading-relaxed mb-4 font-quicksand">
           As a small business owner, finding a reliable cleaning service was a top priority. Ever since I started using this service, my office has never looked better! The team is punctual, th...
         </p>
-        <h4 class="font-medium text-gray-800 font-quicksand">James Rodriguez</h4>
-        <p class="text-gray-500 text-sm font-quicksand">Owner</p>
-        <p class="text-gray-500 text-sm font-quicksand">Rodriguez & Co. Consulting</p>
+        <h4 class="font-medium text-gray-800 font-quicksand dark:text-white ">James Rodriguez</h4>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Owner</p>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Rodriguez & Co. Consulting</p>
       </div>
 
       <!-- Testimonial 2 -->
@@ -184,9 +236,9 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
         <p class="text-gray-500 text-sm leading-relaxed mb-4 font-quicksand">
           I was struggling to keep up with the demands of managing multiple properties, but this service has been a lifesaver. The team is always reliable, professional, and responsive...
         </p>
-        <h4 class="font-medium text-gray-800 font-quicksand">Emily Nguyen</h4>
-        <p class="text-gray-500 text-sm font-quicksand">Property Manager</p>
-        <p class="text-gray-500 text-sm font-quicksand">Nguyen Realty Group</p>
+        <h4 class="font-medium text-gray-800 font-quicksand dark:text-white ">Emily Nguyen</h4>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Property Manager</p>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Nguyen Realty Group</p>
       </div>
 
       <!-- Testimonial 3 -->
@@ -195,28 +247,28 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
         <p class="text-gray-500 text-sm leading-relaxed mb-4 font-quicksand">
           I can’t believe the difference this service has made! Not only are they efficient and reliable, but they also truly care about the quality of their work. It’s rare to find a service that com...
         </p>
-        <h4 class="font-medium text-gray-800 font-quicksand">Karen Patel</h4>
-        <p class="text-gray-500 text-sm font-quicksand">Founder & CEO</p>
-        <p class="text-gray-500 text-sm font-quicksand">Patel Lifestyle Services</p>
+        <h4 class="font-medium text-gray-800 font-quicksand dark:text-white ">Karen Patel</h4>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Founder & CEO</p>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-white ">Patel Lifestyle Services</p>
       </div>
     </div>
 
     <!-- Buttons -->
     <div class="mt-12 flex justify-center gap-6">
-      <button class="px-6 py-2 bg-[#1C2139] text-white rounded-md hover:opacity-90">
+      <button class="px-6 py-2 rounded-md hover:opacity-90 dark:text-white ">
         Button label
       </button>
-      <button class="px-6 py-2 border border-[#CBB97A] text-[#CBB97A] rounded-md hover:bg-[#CBB97A] hover:text-white transition">
+      <button class="px-6 py-2 border border-[#CBB97A] text-[#CBB97A] rounded-sm hover:bg-[#CBB97A] hover:text-white transition">
         Button label
       </button>
     </div>
   </section>
-   <section class="py-16 px-6 md:px-20 lg:px-32 flex flex-col md:flex-row justify-between bg-[#F5F5F6]">
+   <section class="py-20 px-6 md:px-20 lg:px-48 flex flex-col md:flex-row justify-between bg-[#F5F5F6] dark:bg-[#1C2139]">
     <!-- Left Content -->
-    <div class="md:w-1/2 mb-10 mt-32 md:mb-0">
-      <h2 class="text-4xl font-medium text-gray-900 font-quicksand">Get in touch</h2>
+    <div class="md:w-1/2 mb-10 sm:mt-32 mt-1 md:mb-0">
+      <h2 class="text-4xl font-normal text-gray-900 font-quicksand dark:text-white ">Get in touch</h2>
       <div class="w-12 h-[2px] bg-yellow-500 my-4"></div>
-      <p class="text-gray-500 max-w-md font-quicksand">
+      <p class="text-gray-500 max-w-md font-quicksand dark:text-gray-400">
         Have a question? Let us know! We’re dedicated to providing the support you need.
       </p>
     </div>
@@ -225,22 +277,26 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
     <div class="md:w-1/2">
       <form class="space-y-2">
         <div>
-          <label class="block text-sm font-medium text-gray-700 font-quicksand">Name</label>
-          <input type="text" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+          <label  class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Name</label> 
+          <input type="text" id="names" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+          <p id="nameerror" class="text-red-600 text-xs"></p>
+        </div>
+       
+        
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Phone number</label>
+          <input type="text" id="no" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-dotted">
+        <p id="pherror" class="text-red-600 text-xs"></p>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Email</label>
+          <input type="email" id="email" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+          <p id="mailerror" class="text-red-600 text-xs"></p>
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 font-quicksand">Phone number</label>
-          <input type="text" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-dotted">
+          <label class="block text-sm font-medium text-gray-700 font-quicksand dark:text-white ">Your message</label>
+          <textarea id="message" placeholder="Placeholder text" rows="4" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"></textarea>
+          <p id="msgerror" class="text-red-600 text-xs"></p>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 font-quicksand">Email</label>
-          <input type="email" placeholder="Placeholder text" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 font-quicksand">Your message</label>
-          <textarea placeholder="Placeholder text" rows="4" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"></textarea>
-        </div>
-        <button type="submit" class="w-full border border-gray-700 rounded py-2 text-gray-800 flex items-center font-quicksand justify-center hover:bg-gray-100">
+        <button type="button" id="sub" class="w-full border border-gray-700 rounded py-2 bg-white dark:bg-white text-gray-800 flex items-center font-quicksand justify-center hover:bg-gray-100">
           Send <span class="ml-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
 </svg>
@@ -250,38 +306,40 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
     </div>
   </section>
 
+  
+
   <!-- Footer -->
-  <footer class="bg-gray-50 py-12 border-t border-gray-200">
+  <footer class="bg-gray-50 py-12 border-t dark:bg-[#202541] border-gray-200">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-gray-700">
       
       <!-- More -->
       <div>
-        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand">MORE</h4>
+        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand dark:text-white">MORE</h4>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">FAQ</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Shipping & returns</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Contact</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Terms</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Privacy</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">FAQ</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Shipping & returns</a></li>
+          <li><a href="contact us.html" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Contact</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Terms</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Privacy</a></li>
         </ul>
       </div>
 
       <!-- Email List -->
       <div>
-        <h4 class="font-normal text-xl font-quicksand text-gray-900 mb-3">EMAIL LIST</h4>
+        <h4 class="font-normal text-xl font-quicksand text-gray-900 mb-3 dark:text-white">EMAIL LIST</h4>
         <ul class="space-y-1">
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">FAQ</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Shipping & returns</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Contact</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Terms</a></li>
-          <li><a href="#" class="hover:text-gray-900 font-quicksand">Privacy</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">FAQ</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Shipping & returns</a></li>
+          <li><a href="contact us.html" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Contact</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Terms</a></li>
+          <li><a href="#" class="hover:text-gray-900 font-quicksand dark:text-gray-400">Privacy</a></li>
         </ul>
       </div>
 
       <!-- About Us -->
       <div>
-        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand">ABOUT US</h4>
-        <p class="text-gray-500 text-sm font-quicksand">
+        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand dark:text-white">ABOUT US</h4>
+        <p class="text-gray-500 text-sm font-quicksand dark:text-gray-400">
           Helping businesses thrive with tailored solutions and expert guidance. 
           Driven by innovation, we focus on real results and lasting partnerships.
         </p>
@@ -289,7 +347,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
 
       <!-- Social Media -->
       <div>
-        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand">FOLLOW US ON SOCIAL MEDIA</h4>
+        <h4 class="font-normal text-xl text-gray-900 mb-3 font-quicksand dark:text-white">FOLLOW US ON SOCIAL MEDIA</h4>
         <div class="flex space-x-3">
           <a href="#" class="bg-[#CBB97A] p-2 rounded text-white">
            <img src="C:\Users\aanan\OneDrive\Desktop\website\task2\images\insta-svgrepo-com.svg" class="size-5" alt="">
@@ -303,13 +361,14 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> <br> Quas cupidit
     </div>
 
     <!-- Bottom Links -->
-    <div class="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-500">
+    <div class="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-500 dark:text-gray-400">
       <a href="#" class="mx-2 hover:text-gray-900 font-quicksand">FAQ</a>
       <a href="#" class="mx-2 hover:text-gray-900 font-quicksand">Shipping & returns</a>
-      <a href="#" class="mx-2 hover:text-gray-900 font-quicksand">Contact</a>
+      <a href="contact us.html" class="mx-2 hover:text-gray-900 font-quicksand">Contact</a>
       <a href="#" class="mx-2 hover:text-gray-900 font-quicksand">Terms</a>
       <a href="#" class="mx-2 hover:text-gray-900 font-quicksand">Privacy</a>
     </div>
+     <div class="text-center font-quicksand text-xs text-gray-500 mt-10 dark:text-gray-400">copyright 2024</div>
   </footer>
 
 </body>
